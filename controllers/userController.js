@@ -32,7 +32,7 @@ const userController = {
 
       res.cookie("refreshtoken", refreshtoken, {
         httpOnly: false,
-        path: "http://localhost:5005/user/refresh_token",
+        path: "https://loginreactserver.herokuapp.com/user/refresh_token",
       });
 
       res.json(refreshtoken);
@@ -74,7 +74,7 @@ const userController = {
 
       res.cookie("refreshtoken", refreshtoken, {
         httpOnly: true,
-        path: "http://localhost:5005/user/refresh_token",
+        path: "https://loginreactserver.herokuapp.com/user/refresh_token",
       });
 
       res.json({ accesstoken });
@@ -85,7 +85,7 @@ const userController = {
   logout: async (req, res) => {
     try {
       res.clearCookie("refreshtoken", {
-        path: "http://localhost:5005/user/refresh_token",
+        path: "https://loginreactserver.herokuapp.com/user/refresh_token",
       });
       return res.json({ msg: "Logged out" });
     } catch (err) {
