@@ -32,7 +32,7 @@ const username = process.env.DB_USERNAME;
 const password = process.env.DB_PASSWORD;
 Connection(username, password);
 
-const port = process.env.PORT;
+const port = process.env.PORT || 5005;
 app.listen(port, () => {
   console.log(`App running successfully on ${port}`);
 });
