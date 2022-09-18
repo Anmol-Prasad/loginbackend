@@ -24,12 +24,15 @@ app.use(cookieParser());
 app.use(express.json());
 
 app.use("/user", userRoutes);
+app.get("/", (req, res) => {
+  res.send("Hello");
+});
 
 const username = process.env.DB_USERNAME;
 const password = process.env.DB_PASSWORD;
 Connection(username, password);
 
-const port = process.env.PORT || 5005;
+const port = process.env.PORT;
 app.listen(port, () => {
   console.log(`App running successfully on ${port}`);
 });
