@@ -7,7 +7,7 @@ import cors from "cors";
 
 dotenv.config();
 const app = express();
-const whitelist = ["http://localhost:3001"];
+const whitelist = ["http://localhost:3000"];
 const corsOptions = {
   origin: function (origin, callback) {
     if (!origin || whitelist.indexOf(origin) !== -1) {

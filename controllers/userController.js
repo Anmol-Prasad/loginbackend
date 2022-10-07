@@ -74,7 +74,9 @@ const userController = {
 
       res.cookie("refreshtoken", refreshtoken, {
         httpOnly: true,
-        path: "https://loginserver-36lp.onrender/user/refresh_token",
+        path: "https://loginserver-36lp.onrender/user/refresh_token.com",
+        secure: true,
+        sameSite: "none",
       });
 
       res.json({ accesstoken });
