@@ -7,19 +7,29 @@ import cors from "cors";
 
 dotenv.config();
 const app = express();
-const whitelist = ["https://reactlogintest.netlify.app/"];
+const whitelist = ["http://localhost:3000"];
+// const corsOptions = {
+//   origin: function (origin, callback) {
+//     if (!origin || whitelist.indexOf(origin) !== -1) {
+//       callback(null, true);
+//     } else {
+//       callback(new Error("Not allowed by CORS"));
+//     }
+//   },
+//   credentials: true,
+// };
 const corsOptions = {
-  origin: function (origin, callback) {
-    if (!origin || whitelist.indexOf(origin) !== -1) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
-    }
-  },
-  credentials: true,
+  origin: [
+    "https://reactlogintest.netlify.app",
+    "http://localhost:3000",
+    "https://reactlogintest2.netlify.app",
+  ],
+  credentials: true, //access-control-allow-credentials:true
+  optionSuccessStatus: 200,
 };
 app.use(cors(corsOptions));
-// app.use(cors({ origin: "http://localhost:3001", credentials: true }));
+app.options("*", cors());
+// app.use(cors({ origin: "http://localhost:3000", credentials: true }));
 app.use(cookieParser());
 app.use(express.json());
 

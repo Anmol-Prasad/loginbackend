@@ -32,7 +32,7 @@ const userController = {
 
       res.cookie("refreshtoken", refreshtoken, {
         httpOnly: false,
-        path: "https://loginserver-36lp.onrender/user/refresh_token",
+        path: "https://loginserver-36lp.onrender.com/user/refresh_token",
       });
 
       res.json(refreshtoken);
@@ -74,7 +74,7 @@ const userController = {
 
       res.cookie("refreshtoken", refreshtoken, {
         httpOnly: true,
-        path: "https://loginserver-36lp.onrender/user/refresh_token.com",
+        path: "https://loginserver-36lp.onrender.com/user/refresh_token.com",
         secure: true,
         sameSite: "none",
       });
@@ -87,7 +87,7 @@ const userController = {
   logout: async (req, res) => {
     try {
       res.clearCookie("refreshtoken", {
-        path: "https://loginserver-36lp.onrender/user/refresh_token",
+        path: "https://loginserver-36lp.onrender.com/user/refresh_token",
       });
       return res.json({ msg: "Logged out" });
     } catch (err) {
